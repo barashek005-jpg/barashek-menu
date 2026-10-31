@@ -1,0 +1,696 @@
+{\rtf1\ansi\ansicpg1251\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c100000\c100000\c100000;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh18000\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+<!DOCTYPE html>\
+<html lang="ru">\
+<head>\
+   <meta charset="UTF-8">\
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">\
+   <title>\uc0\u1052 \u1077 \u1085 \u1102  \'97 \u1064 \u1072 \u1096 \u1083 \u1099 \u1095 \u1085 \u1072 \u1103  \u1041 \u1072 \u1088 \u1072 \u1096 \u1077 \u1082 </title>\
+   <style>\
+       /* \uc0\u1062 \u1074 \u1077 \u1090 \u1086 \u1074 \u1072 \u1103  \u1087 \u1072 \u1083 \u1080 \u1090 \u1088 \u1072  \u1080 \u1079  \u1074 \u1072 \u1096 \u1077 \u1075 \u1086  \u1084 \u1077 \u1085 \u1102  */\
+       :root \{\
+           --bg-color: #EADCD2;\
+           --text-main: #332211;\
+           --text-muted: #665544;\
+           --accent: #7C5030;\
+           --card-bg: #F4EAE3;\
+           --border-color: rgba(124, 80, 48, 0.15);\
+       \}\
+\
+       * \{ box-sizing: border-box; margin: 0; padding: 0; \}\
+\
+       html \{\
+           scroll-behavior: smooth;\
+       \}\
+\
+       body \{\
+           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\
+           background-color: var(--bg-color);\
+           color: var(--text-main);\
+           -webkit-font-smoothing: antialiased;\
+       \}\
+\
+       /* \uc0\u1064 \u1072 \u1087 \u1082 \u1072  */\
+       header \{\
+           padding: 25px 15px 15px;\
+           text-align: center;\
+       \}\
+\
+       header h1 \{ \
+           font-size: 26px; \
+           font-weight: 800; \
+           letter-spacing: 2px; \
+           color: var(--text-main); \
+       \}\
+       header p \{ \
+           font-size: 13px; \
+           color: var(--text-muted); \
+           letter-spacing: 4px; \
+           margin-top: 5px;\
+       \}\
+\
+       /* \uc0\u1055 \u1086 \u1080 \u1089 \u1082  */\
+       .search-container \{\
+           padding: 0 15px 15px;\
+           max-width: 600px;\
+           margin: 0 auto;\
+       \}\
+       .search-input \{\
+           width: 100%;\
+           padding: 12px 20px;\
+           border-radius: 30px;\
+           border: 2px solid var(--border-color);\
+           background-color: var(--card-bg);\
+           font-size: 16px;\
+           color: var(--text-main);\
+           outline: none;\
+           transition: 0.3s;\
+       \}\
+       .search-input:focus \{\
+           border-color: var(--accent);\
+           box-shadow: 0 0 10px rgba(124, 80, 48, 0.1);\
+       \}\
+\
+       /* \uc0\u1051 \u1080 \u1087 \u1082 \u1086 \u1077  \u1085 \u1072 \u1074 \u1080 \u1075 \u1072 \u1094 \u1080 \u1086 \u1085 \u1085 \u1086 \u1077  \u1084 \u1077 \u1085 \u1102  */\
+       .nav-scroll \{\
+           position: sticky;\
+           top: 0;\
+           background: rgba(234, 220, 210, 0.95);\
+           backdrop-filter: blur(10px);\
+           -webkit-backdrop-filter: blur(10px);\
+           z-index: 100;\
+           overflow-x: auto;\
+           white-space: nowrap;\
+           padding: 10px 15px;\
+           box-shadow: 0 4px 10px rgba(0,0,0,0.05);\
+           scrollbar-width: none; \
+       \}\
+       .nav-scroll::-webkit-scrollbar \{ display: none; \}\
+\
+       .nav-scroll a \{\
+           display: inline-block;\
+           text-decoration: none;\
+           color: var(--text-muted);\
+           font-weight: 600;\
+           font-size: 14px;\
+           padding: 8px 16px;\
+           margin-right: 8px;\
+           border-radius: 20px;\
+           background-color: rgba(255,255,255,0.5);\
+           transition: 0.2s;\
+       \}\
+       .nav-scroll a:active \{\
+           background-color: var(--accent);\
+           color: white;\
+       \}\
+\
+       /* \uc0\u1050 \u1086 \u1085 \u1090 \u1077 \u1081 \u1085 \u1077 \u1088  */\
+       .menu-container \{\
+           padding: 15px 15px 60px;\
+           max-width: 600px;\
+           margin: 0 auto;\
+       \}\
+\
+       /* \uc0\u1047 \u1072 \u1075 \u1086 \u1083 \u1086 \u1074 \u1082 \u1080  \u1082 \u1072 \u1090 \u1077 \u1075 \u1086 \u1088 \u1080 \u1081  */\
+       .category-title \{\
+           font-size: 22px;\
+           font-weight: 700;\
+           color: var(--accent);\
+           margin: 35px 0 15px;\
+           padding-bottom: 8px;\
+           border-bottom: 2px solid var(--border-color);\
+           scroll-margin-top: 70px;\
+       \}\
+       .category-subtitle \{\
+           font-size: 14px;\
+           color: var(--text-muted);\
+           margin-top: -10px;\
+           margin-bottom: 15px;\
+           font-style: italic;\
+       \}\
+\
+       /* \uc0\u1050 \u1072 \u1088 \u1090 \u1086 \u1095 \u1082 \u1072  \u1073 \u1083 \u1102 \u1076 \u1072  */\
+       .menu-item \{\
+           background: var(--card-bg);\
+           border-radius: 12px;\
+           margin-bottom: 12px;\
+           padding: 15px;\
+           box-shadow: 0 2px 5px rgba(0,0,0,0.02);\
+           display: flex;\
+           flex-direction: column;\
+           transition: transform 0.2s;\
+       \}\
+\
+       /* \uc0\u1060 \u1086 \u1090 \u1086  (\u1087 \u1086  \u1091 \u1084 \u1086 \u1083 \u1095 \u1072 \u1085 \u1080 \u1102  \u1089 \u1082 \u1088 \u1099 \u1090 \u1086 , \u1077 \u1089 \u1083 \u1080  \u1085 \u1077 \u1090  \u1089 \u1089 \u1099 \u1083 \u1082 \u1080 ) */\
+       .item-image \{\
+           width: 100%;\
+           height: 200px;\
+           object-fit: cover;\
+           border-radius: 8px;\
+           margin-bottom: 12px;\
+           display: none; /* \uc0\u1057 \u1082 \u1088 \u1099 \u1090 \u1086 , \u1087 \u1086 \u1082 \u1072  \u1085 \u1077 \u1090  \u1092 \u1086 \u1090 \u1086  */\
+           background-color: #d5c5b8;\
+       \}\
+       .item-image[src] \{ display: block; \}\
+\
+       .item-header \{\
+           display: flex;\
+           justify-content: space-between;\
+           align-items: flex-start;\
+           gap: 15px;\
+       \}\
+\
+       .item-name \{\
+           font-size: 16px;\
+           font-weight: 600;\
+           line-height: 1.3;\
+           color: var(--text-main);\
+       \}\
+\
+       .item-weight \{\
+           font-size: 13px;\
+           color: #888;\
+           display: block;\
+           margin-top: 4px;\
+       \}\
+\
+       .item-price \{\
+           font-size: 16px;\
+           font-weight: 700;\
+           color: var(--accent);\
+           white-space: nowrap;\
+       \}\
+\
+       .item-desc \{\
+           font-size: 13px;\
+           color: var(--text-muted);\
+           margin-top: 8px;\
+           line-height: 1.5;\
+       \}\
+\
+       /* \uc0\u1055 \u1086 \u1076 \u1074 \u1072 \u1083  */\
+       footer \{\
+           text-align: center;\
+           padding: 30px 20px;\
+           background: var(--text-main);\
+           color: var(--bg-color);\
+           font-size: 14px;\
+       \}\
+\
+       /* \uc0\u1057 \u1082 \u1088 \u1099 \u1090 \u1080 \u1077  \u1101 \u1083 \u1077 \u1084 \u1077 \u1085 \u1090 \u1086 \u1074  \u1087 \u1088 \u1080  \u1087 \u1086 \u1080 \u1089 \u1082 \u1077  */\
+       .hidden \{ display: none !important; \}\
+   </style>\
+</head>\
+<body>\
+\
+   <header>\
+       <h1>\uc0\u1041 \u1040 \u1056 \u1040 \u1064 \u1045 \u1050 </h1>\
+       <p>\uc0\u1064 \u1040 \u1064 \u1051 \u1067 \u1063 \u1053 \u1040 \u1071 </p>\
+   </header>\
+\
+   <div class="search-container">\
+       <input type="text" id="searchInput" class="search-input" placeholder="\uc0\u1055 \u1086 \u1080 \u1089 \u1082  \u1087 \u1086  \u1084 \u1077 \u1085 \u1102  (\u1085 \u1072 \u1087 \u1088 \u1080 \u1084 \u1077 \u1088 , \u1093 \u1072 \u1095 \u1072 \u1087 \u1091 \u1088 \u1080 )...">\
+   </div>\
+\
+   <!-- \uc0\u1053 \u1072 \u1074 \u1080 \u1075 \u1072 \u1094 \u1080 \u1103  -->\
+   <nav class="nav-scroll">\
+       <a href="#mangal">\uc0\u1052 \u1072 \u1085 \u1075 \u1072 \u1083 </a>\
+       <a href="#pech">\uc0\u1048 \u1079  \u1087 \u1077 \u1095 \u1080 </a>\
+       <a href="#zakuski">\uc0\u1047 \u1072 \u1082 \u1091 \u1089 \u1082 \u1080 </a>\
+       <a href="#supy">\uc0\u1057 \u1091 \u1087 \u1099 </a>\
+       <a href="#goryachee">\uc0\u1043 \u1086 \u1088 \u1103 \u1095 \u1077 \u1077 </a>\
+       <a href="#garniry">\uc0\u1043 \u1072 \u1088 \u1085 \u1080 \u1088 \u1099 </a>\
+       <a href="#sousy">\uc0\u1057 \u1086 \u1091 \u1089 \u1099 </a>\
+       <a href="#deserty">\uc0\u1044 \u1077 \u1089 \u1077 \u1088 \u1090 \u1099 </a>\
+       <a href="#tea_coffee">\uc0\u1063 \u1072 \u1081  \u1080  \u1050 \u1086 \u1092 \u1077 </a>\
+       <a href="#lemonades">\uc0\u1051 \u1080 \u1084 \u1086 \u1085 \u1072 \u1076 \u1099 </a>\
+       <a href="#alcohol">\uc0\u1040 \u1083 \u1082 \u1086 \u1075 \u1086 \u1083 \u1100 </a>\
+       <a href="#wine">\uc0\u1042 \u1080 \u1085 \u1086 </a>\
+       <a href="#cocktails">\uc0\u1050 \u1086 \u1082 \u1090 \u1077 \u1081 \u1083 \u1080 </a>\
+   </nav>\
+\
+   <main class="menu-container" id="menuList">\
+\
+       <!-- \uc0\u1052 \u1040 \u1053 \u1043 \u1040 \u1051  -->\
+       <h2 class="category-title" id="mangal">\uc0\u1052 \u1072 \u1085 \u1075 \u1072 \u1083 </h2>\
+\
+       <div class="menu-item">\
+           <img src="" alt="\uc0\u1050 \u1072 \u1088 \u1077  \u1103 \u1075 \u1085 \u1077 \u1085 \u1082 \u1072 " class="item-image">\
+           <div class="item-header"><div class="item-name">\uc0\u1050 \u1072 \u1088 \u1077  \u1103 \u1075 \u1085 \u1105 \u1085 \u1082 \u1072  <span class="item-weight">100 \u1075 \u1088 .</span></div><div class="item-price">620 \u8381 </div></div>\
+       </div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1041 \u1072 \u1088 \u1072 \u1085 \u1080  \u1089 \u1077 \u1084 \u1077 \u1095 \u1082 \u1080 </div><div class="item-price">980 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1064 \u1072 \u1096 \u1083 \u1099 \u1082  \u1080 \u1079  \u1073 \u1072 \u1088 \u1072 \u1085 \u1077 \u1081  \u1087 \u1077 \u1095 \u1077 \u1085 \u1080 </div><div class="item-price">670 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1064 \u1072 \u1096 \u1083 \u1099 \u1082  \u1080 \u1079  \u1090 \u1077 \u1083 \u1103 \u1090 \u1080 \u1085 \u1099  <span class="item-weight">100 \u1075 \u1088 .</span></div><div class="item-price">790 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1064 \u1072 \u1096 \u1083 \u1099 \u1082  \u1080 \u1079  \u1089 \u1074 \u1080 \u1085 \u1086 \u1081  \u1096 \u1077 \u1080 </div><div class="item-price">760 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1074 \u1080 \u1085 \u1099 \u1077  \u1088 \u1105 \u1073 \u1088 \u1072  \u1085 \u1072  \u1091 \u1075 \u1083 \u1103 \u1093 </div><div class="item-price">860 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1064 \u1072 \u1096 \u1083 \u1099 \u1082  \u1080 \u1079  \u1080 \u1085 \u1076 \u1077 \u1081 \u1082 \u1080 </div><div class="item-price">720 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1064 \u1072 \u1096 \u1083 \u1099 \u1082  \u1080 \u1079  \u1082 \u1091 \u1088 \u1080 \u1094 \u1099 </div><div class="item-price">650 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1055 \u1077 \u1088 \u1077 \u1087 \u1105 \u1083 \u1082 \u1072  \u1085 \u1072  \u1091 \u1075 \u1083 \u1103 \u1093 </div><div class="item-price">790 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1051 \u1102 \u1083 \u1103 -\u1050 \u1077 \u1073 \u1072 \u1073  \u1080 \u1079  \u1073 \u1072 \u1088 \u1072 \u1085 \u1080 \u1085 \u1099 </div><div class="item-price">1030 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1051 \u1102 \u1083 \u1103 -\u1050 \u1077 \u1073 \u1072 \u1073  \u1080 \u1079  \u1082 \u1091 \u1088 \u1080 \u1094 \u1099  / \u1089  \u1089 \u1099 \u1088 \u1086 \u1084 </div><div class="item-price">560 / 590 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1051 \u1102 \u1083 \u1103 -\u1050 \u1077 \u1073 \u1072 \u1073  \u1080 \u1079  \u1090 \u1077 \u1083 \u1103 \u1090 \u1080 \u1085 \u1099  / \u1089  \u1089 \u1099 \u1088 \u1086 \u1084 </div><div class="item-price">690 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1051 \u1102 \u1083 \u1103 -\u1050 \u1077 \u1073 \u1072 \u1073  \u1080 \u1079  \u1089 \u1105 \u1084 \u1075 \u1080 </div><div class="item-price">990 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1064 \u1072 \u1096 \u1083 \u1099 \u1082  \u1080 \u1079  \u1089 \u1105 \u1084 \u1075 \u1080  <span class="item-weight">100 \u1075 \u1088 .</span></div><div class="item-price">810 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1044 \u1086 \u1088 \u1072 \u1076 \u1086  \u1085 \u1072  \u1091 \u1075 \u1083 \u1103 \u1093 </div><div class="item-price">1450 \u8381 </div></div></div>\
+\
+       <!-- \uc0\u1048 \u1047  \u1055 \u1045 \u1063 \u1048  -->\
+       <h2 class="category-title" id="pech">\uc0\u1041 \u1083 \u1102 \u1076 \u1072  \u1080 \u1079  \u1087 \u1077 \u1095 \u1080 </h2>\
+\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1091 \u1090 \u1072 \u1073  \u1089  \u1089 \u1099 \u1088 \u1086 \u1084 </div><div class="item-price">320 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1091 \u1090 \u1072 \u1073  \u1089  \u1073 \u1072 \u1088 \u1072 \u1085 \u1080 \u1085 \u1086 \u1081 </div><div class="item-price">530 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1091 \u1090 \u1072 \u1073  \u1089  \u1079 \u1077 \u1083 \u1077 \u1085 \u1100 \u1102 </div><div class="item-price">320 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1061 \u1072 \u1095 \u1072 \u1087 \u1091 \u1088 \u1080  \u1087 \u1086 -\u1072 \u1076 \u1078 \u1072 \u1088 \u1089 \u1082 \u1080 </div><div class="item-price">620 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1061 \u1072 \u1095 \u1072 \u1087 \u1091 \u1088 \u1080  \u1087 \u1086 -\u1084 \u1077 \u1075 \u1088 \u1077 \u1083 \u1100 \u1089 \u1082 \u1080 </div><div class="item-price">650 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1061 \u1072 \u1095 \u1072 \u1087 \u1091 \u1088 \u1080  \u1089  \u1075 \u1088 \u1091 \u1096 \u1077 \u1081  \u1080  \u1075 \u1086 \u1088 \u1075 \u1086 \u1085 \u1079 \u1086 \u1083 \u1086 \u1081 </div><div class="item-price">920 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1061 \u1072 \u1095 \u1072 \u1087 \u1091 \u1088 \u1080  \u1089  \u1082 \u1088 \u1077 \u1074 \u1077 \u1090 \u1082 \u1072 \u1084 \u1080 </div><div class="item-price">960 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1061 \u1072 \u1095 \u1072 \u1087 \u1091 \u1088 \u1080  \u1082 \u1091 \u1073 \u1076 \u1072 \u1088 \u1080 </div><div class="item-price">770 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1061 \u1072 \u1095 \u1072 \u1087 \u1091 \u1088 \u1080  \u1085 \u1072  \u1084 \u1072 \u1085 \u1075 \u1072 \u1083 \u1077 </div><div class="item-price">380 \u8381 </div></div></div>\
+\
+       <!-- \uc0\u1047 \u1040 \u1050 \u1059 \u1057 \u1050 \u1048  \u1048  \u1057 \u1040 \u1051 \u1040 \u1058 \u1067  -->\
+       <h2 class="category-title" id="zakuski">\uc0\u1047 \u1072 \u1082 \u1091 \u1089 \u1082 \u1080  / \u1057 \u1072 \u1083 \u1072 \u1090 \u1099 </h2>\
+\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1040 \u1089 \u1089 \u1086 \u1088 \u1090 \u1080  \u1080 \u1079  \u1089 \u1074 \u1077 \u1078 \u1077 \u1081  \u1079 \u1077 \u1083 \u1077 \u1085 \u1080 , \u1090 \u1086 \u1084 \u1072 \u1090 \u1086 \u1074  \u1080  \u1086 \u1075 \u1091 \u1088 \u1094 \u1086 \u1074 </div><div class="item-price">720 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1099 \u1088 \u1085 \u1072 \u1103  \u1090 \u1072 \u1088 \u1077 \u1083 \u1082 \u1072 </div><div class="item-price">860 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1044 \u1086 \u1084 \u1072 \u1096 \u1085 \u1080 \u1077  \u1089 \u1086 \u1083 \u1077 \u1085 \u1100 \u1103 </div><div class="item-price">750 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1041 \u1072 \u1089 \u1090 \u1091 \u1088 \u1084 \u1072 </div><div class="item-price">560 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1086 \u1089 \u1090 \u1085 \u1099 \u1081  \u1084 \u1086 \u1079 \u1075  \u1085 \u1072  \u1073 \u1086 \u1088 \u1086 \u1076 \u1080 \u1085 \u1089 \u1082 \u1086 \u1084  \u1093 \u1083 \u1077 \u1073 \u1077 </div><div class="item-price">590 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1056 \u1091 \u1083 \u1077 \u1090 \u1080 \u1082 \u1080  \u1080 \u1079  \u1073 \u1072 \u1082 \u1083 \u1072 \u1078 \u1072 \u1085  \u1089  \u1089 \u1099 \u1088 \u1085 \u1086 \u1081  \u1085 \u1072 \u1095 \u1080 \u1085 \u1082 \u1086 \u1081 </div><div class="item-price">540 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1056 \u1091 \u1083 \u1077 \u1090 \u1080 \u1082 \u1080  \u1080 \u1079  \u1073 \u1072 \u1082 \u1083 \u1072 \u1078 \u1072 \u1085  \u1089  \u1086 \u1088 \u1077 \u1093 \u1086 \u1074 \u1086 \u1081  \u1085 \u1072 \u1095 \u1080 \u1085 \u1082 \u1086 \u1081 </div><div class="item-price">430 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1040 \u1076 \u1078 \u1072 \u1087 \u1089 \u1072 \u1085 \u1076 \u1072 \u1083 </div><div class="item-price">540 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1046 \u1072 \u1088 \u1077 \u1085 \u1099 \u1081  \u1089 \u1091 \u1083 \u1091 \u1075 \u1091 \u1085 \u1080  \u1089  \u1103 \u1075 \u1086 \u1076 \u1085 \u1099 \u1084  \u1089 \u1086 \u1091 \u1089 \u1086 \u1084 </div><div class="item-price">420 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1072 \u1083 \u1072 \u1090  \u1086 \u1074 \u1086 \u1097 \u1085 \u1086 \u1081  \u1087 \u1086 -\u1075 \u1088 \u1091 \u1079 \u1080 \u1085 \u1089 \u1082 \u1080 </div><div class="item-price">580 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1072 \u1083 \u1072 \u1090  \u1089 \u1086  \u1096 \u1087 \u1080 \u1085 \u1072 \u1090 \u1086 \u1084 , \u1088 \u1086 \u1089 \u1090 \u1082 \u1072 \u1084 \u1080  \u1084 \u1072 \u1096 \u1072  \u1080  \u1089 \u1086 \u1091 \u1089 \u1086 \u1084  \u1080 \u1079  \u1082 \u1080 \u1085 \u1079 \u1099 </div><div class="item-price">560 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1072 \u1083 \u1072 \u1090  \u1089  \u1093 \u1088 \u1091 \u1089 \u1090 \u1103 \u1097 \u1080 \u1084  \u1073 \u1072 \u1082 \u1083 \u1072 \u1078 \u1072 \u1085 \u1086 \u1084  \u1080  \u1084 \u1103 \u1075 \u1082 \u1080 \u1084  \u1089 \u1099 \u1088 \u1086 \u1084 </div><div class="item-price">590 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1054 \u1074 \u1086 \u1097 \u1085 \u1086 \u1081  \u1089 \u1072 \u1083 \u1072 \u1090  \u1089  \u1072 \u1076 \u1099 \u1075 \u1077 \u1081 \u1089 \u1082 \u1080 \u1084  \u1089 \u1099 \u1088 \u1086 \u1084 </div><div class="item-price">590 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1072 \u1083 \u1072 \u1090  \u1089  \u1084 \u1086 \u1088 \u1077 \u1087 \u1088 \u1086 \u1076 \u1091 \u1082 \u1090 \u1072 \u1084 \u1080  \u1080  \u1079 \u1072 \u1087 \u1088 \u1072 \u1074 \u1082 \u1086 \u1081  \u1080 \u1079  \u1088 \u1077 \u1074 \u1077 \u1085 \u1103 </div><div class="item-price">840 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1058 \u1077 \u1087 \u1083 \u1099 \u1081  \u1089 \u1072 \u1083 \u1072 \u1090  \u1089  \u1090 \u1077 \u1083 \u1103 \u1090 \u1080 \u1085 \u1086 \u1081  \u1080  \u1079 \u1072 \u1087 \u1088 \u1072 \u1074 \u1082 \u1086 \u1081  \u1080 \u1079  \u1101 \u1089 \u1090 \u1088 \u1072 \u1075 \u1086 \u1085 \u1072 </div><div class="item-price">760 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1072 \u1083 \u1072 \u1090  \u1089  \u1089 \u1105 \u1084 \u1075 \u1086 \u1081  \u1080  \u1072 \u1074 \u1086 \u1082 \u1072 \u1076 \u1086 </div><div class="item-price">760 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1072 \u1083 \u1072 \u1090  \u1089  \u1082 \u1088 \u1077 \u1074 \u1077 \u1090 \u1082 \u1086 \u1081  \u1080  \u1088 \u1091 \u1082 \u1082 \u1086 \u1083 \u1086 \u1081 </div><div class="item-price">750 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1058 \u1086 \u1084 \u1072 \u1090 \u1099 , \u1089 \u1091 \u1083 \u1091 \u1075 \u1091 \u1085 \u1080  \u1080  \u1089 \u1086 \u1091 \u1089  \u1080 \u1079  \u1073 \u1072 \u1079 \u1080 \u1083 \u1080 \u1082 \u1072 </div><div class="item-price">690 \u8381 </div></div></div>\
+\
+       <!-- \uc0\u1057 \u1059 \u1055 \u1067  -->\
+       <h2 class="category-title" id="supy">\uc0\u1057 \u1091 \u1087 \u1099 </h2>\
+\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1051 \u1072 \u1075 \u1084 \u1072 \u1085  \u1089  \u1073 \u1072 \u1088 \u1072 \u1085 \u1080 \u1085 \u1086 \u1081 </div><div class="item-price">680 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1064 \u1091 \u1088 \u1087 \u1072 </div><div class="item-price">590 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1061 \u1072 \u1088 \u1095 \u1086 </div><div class="item-price">480 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1041 \u1086 \u1088 \u1097 </div><div class="item-price">710 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1063 \u1080 \u1093 \u1080 \u1088 \u1090 \u1084 \u1072 </div><div class="item-price">470 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1083 \u1080 \u1074 \u1086 \u1095 \u1085 \u1099 \u1081  \u1088 \u1099 \u1073 \u1085 \u1099 \u1081  \u1089 \u1091 \u1087  \u1089  \u1101 \u1089 \u1090 \u1088 \u1072 \u1075 \u1086 \u1085 \u1086 \u1084 </div><div class="item-price">690 \u8381 </div></div></div>\
+\
+       <!-- \uc0\u1043 \u1054 \u1056 \u1071 \u1063 \u1048 \u1045  \u1041 \u1051 \u1070 \u1044 \u1040  -->\
+       <h2 class="category-title" id="goryachee">\uc0\u1043 \u1086 \u1088 \u1103 \u1095 \u1080 \u1077  \u1073 \u1083 \u1102 \u1076 \u1072 </h2>\
+\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1055 \u1083 \u1086 \u1074  \u1080 \u1079  \u1073 \u1072 \u1088 \u1072 \u1085 \u1080 \u1085 \u1099 </div><div class="item-price">970 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1055 \u1086 \u1083 \u1086 \u1074 \u1080 \u1085 \u1082 \u1072  \u1094 \u1099 \u1087 \u1083 \u1105 \u1085 \u1082 \u1072  \u1089  \u1087 \u1102 \u1088 \u1077  \u1080  \u1087 \u1077 \u1088 \u1094 \u1077 \u1084  \u1093 \u1072 \u1083 \u1072 \u1087 \u1077 \u1085 \u1100 \u1086 </div><div class="item-price">1100 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1044 \u1086 \u1083 \u1084 \u1072  \u1089  \u1095 \u1077 \u1089 \u1085 \u1086 \u1095 \u1085 \u1099 \u1084  \u1084 \u1072 \u1094 \u1086 \u1085 \u1080 </div><div class="item-price">690 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1091 \u1095 \u1084 \u1072 \u1095 \u1080  \u1080 \u1079  \u1073 \u1072 \u1088 \u1072 \u1085 \u1100 \u1077 \u1081  \u1087 \u1077 \u1095 \u1077 \u1085 \u1080 </div><div class="item-price">430 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1072 \u1094 \u1080 \u1074 \u1080  \u1089  \u1082 \u1091 \u1088 \u1080 \u1094 \u1077 \u1081 </div><div class="item-price">480 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1051 \u1086 \u1073 \u1080 \u1086 </div><div class="item-price">360 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1077 \u1088 \u1076 \u1094 \u1072  \u1091 \u1090 \u1080 \u1085 \u1099 \u1077  \u1089  \u1073 \u1077 \u1083 \u1099 \u1084 \u1080  \u1075 \u1088 \u1080 \u1073 \u1072 \u1084 \u1080  \u1080  \u1075 \u1088 \u1091 \u1096 \u1077 \u1081 </div><div class="item-price">770 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1088 \u1077 \u1074 \u1077 \u1090 \u1082 \u1080  \u1087 \u1086 -\u1095 \u1082 \u1084 \u1077 \u1088 \u1089 \u1082 \u1080 </div><div class="item-price">870 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1071 \u1079 \u1099 \u1082 \u1080  \u1103 \u1075 \u1085 \u1105 \u1085 \u1082 \u1072  \u1089  \u1084 \u1086 \u1088 \u1082 \u1086 \u1074 \u1085 \u1099 \u1084  \u1087 \u1102 \u1088 \u1077 , \u1082 \u1091 \u1084 \u1080 \u1085 \u1086 \u1084  \u1080  \u1082 \u1086 \u1087 \u1095 \u1105 \u1085 \u1099 \u1084  \u1089 \u1086 \u1091 \u1089 \u1086 \u1084 </div><div class="item-price">820 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1091 \u1088 \u1080 \u1085 \u1086 \u1077  \u1073 \u1077 \u1076 \u1088 \u1086  \u1089  \u1075 \u1088 \u1077 \u1095 \u1085 \u1077 \u1074 \u1086 \u1081  \u1082 \u1072 \u1096 \u1077 \u1081  \u1080  \u1074 \u1077 \u1096 \u1077 \u1085 \u1082 \u1086 \u1081 </div><div class="item-price">840 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1060 \u1086 \u1088 \u1077 \u1083 \u1100  \u1089  \u1087 \u1088 \u1103 \u1085 \u1086 \u1081  \u1095 \u1077 \u1095 \u1077 \u1074 \u1080 \u1094 \u1077 \u1081 </div><div class="item-price">890 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1041 \u1072 \u1088 \u1072 \u1085 \u1080 \u1085 \u1072  \u1089  \u1086 \u1074 \u1086 \u1097 \u1072 \u1084 \u1080 </div><div class="item-price">980 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1051 \u1086 \u1087 \u1072 \u1090 \u1082 \u1072  \u1103 \u1075 \u1085 \u1105 \u1085 \u1082 \u1072  \u1089  \u1082 \u1072 \u1088 \u1090 \u1086 \u1092 \u1077 \u1083 \u1077 \u1084 </div><div class="item-price">4200 \u8381 </div></div></div>\
+\
+       <!-- \uc0\u1043 \u1040 \u1056 \u1053 \u1048 \u1056 \u1067  \u1048  \u1057 \u1054 \u1059 \u1057 \u1067  -->\
+       <h2 class="category-title" id="garniry">\uc0\u1043 \u1072 \u1088 \u1085 \u1080 \u1088 \u1099 </h2>\
+\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1072 \u1088 \u1090 \u1086 \u1092 \u1077 \u1083 \u1100  \u1085 \u1072  \u1091 \u1075 \u1083 \u1103 \u1093  \u1089  \u1075 \u1088 \u1080 \u1073 \u1072 \u1084 \u1080 </div><div class="item-price">320 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1072 \u1088 \u1090 \u1086 \u1092 \u1077 \u1083 \u1100  \u1085 \u1072  \u1091 \u1075 \u1083 \u1103 \u1093  \u1089  \u1079 \u1077 \u1083 \u1077 \u1085 \u1100 \u1102 </div><div class="item-price">220 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1072 \u1088 \u1090 \u1086 \u1092 \u1077 \u1083 \u1100  \u1085 \u1072  \u1091 \u1075 \u1083 \u1103 \u1093  \u1089  \u1089 \u1099 \u1088 \u1086 \u1084 </div><div class="item-price">260 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1072 \u1088 \u1090 \u1086 \u1092 \u1077 \u1083 \u1100  \u1073 \u1077 \u1073 \u1080  \u1089  \u1082 \u1091 \u1088 \u1076 \u1102 \u1082 \u1086 \u1084 </div><div class="item-price">300 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1054 \u1074 \u1086 \u1097 \u1080  \u1085 \u1072  \u1091 \u1075 \u1083 \u1103 \u1093 </div><div class="item-price">540 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1064 \u1072 \u1084 \u1087 \u1080 \u1085 \u1100 \u1086 \u1085 \u1099  \u1085 \u1072  \u1091 \u1075 \u1083 \u1103 \u1093 </div><div class="item-price">340 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1091 \u1082 \u1091 \u1088 \u1091 \u1079 \u1072  \u1085 \u1072  \u1084 \u1072 \u1085 \u1075 \u1072 \u1083 \u1077 </div><div class="item-price">370 \u8381 </div></div></div>\
+\
+       <h2 class="category-title" id="sousy">\uc0\u1057 \u1086 \u1091 \u1089 \u1099 </h2>\
+\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1072 \u1094 \u1080 \u1073 \u1077 \u1083 \u1080 </div><div class="item-price">80 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1058 \u1082 \u1077 \u1084 \u1072 \u1083 \u1080 </div><div class="item-price">100 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1052 \u1072 \u1094 \u1086 \u1085 \u1080 </div><div class="item-price">80 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1040 \u1076 \u1078 \u1080 \u1082 \u1072 </div><div class="item-price">90 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1058 \u1086 \u1084 \u1072 \u1090 \u1085 \u1072 \u1103  \u1089 \u1072 \u1083 \u1100 \u1089 \u1072 </div><div class="item-price">100 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1053 \u1072 \u1088 \u1096 \u1072 \u1088 \u1072 \u1073 </div><div class="item-price">150 \u8381 </div></div></div>\
+\
+       <!-- \uc0\u1044 \u1045 \u1057 \u1045 \u1056 \u1058 \u1067  -->\
+       <h2 class="category-title" id="deserty">\uc0\u1044 \u1077 \u1089 \u1077 \u1088 \u1090 \u1099 </h2>\
+\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1055 \u1080 \u1088 \u1086 \u1075  \u1084 \u1072 \u1083 \u1080 \u1085 \u1086 \u1074 \u1099 \u1081 </div><div class="item-price">490 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1064 \u1090 \u1088 \u1091 \u1076 \u1077 \u1083 \u1100  \u1074 \u1080 \u1096 \u1085 \u1105 \u1074 \u1099 \u1081 </div><div class="item-price">590 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1053 \u1072 \u1087 \u1086 \u1083 \u1077 \u1086 \u1085 </div><div class="item-price">640 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1052 \u1077 \u1076 \u1086 \u1074 \u1080 \u1082 </div><div class="item-price">460 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1055 \u1072 \u1093 \u1083 \u1072 \u1074 \u1072 </div><div class="item-price">510 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1052 \u1077 \u1088 \u1077 \u1085 \u1075 \u1086 \u1074 \u1099 \u1081  \u1088 \u1091 \u1083 \u1077 \u1090 </div><div class="item-price">490 \u8381 </div></div></div>\
+\
+       <!-- \uc0\u1063 \u1040 \u1049  \u1048  \u1050 \u1054 \u1060 \u1045  -->\
+       <h2 class="category-title" id="tea_coffee">\uc0\u1063 \u1072 \u1081 , \u1050 \u1086 \u1092 \u1077  \u1080  \u1043 \u1086 \u1088 \u1103 \u1095 \u1080 \u1077  \u1085 \u1072 \u1087 \u1080 \u1090 \u1082 \u1080 </h2>\
+\
+       <h3 class="category-subtitle">\uc0\u1060 \u1080 \u1088 \u1084 \u1077 \u1085 \u1085 \u1099 \u1081  \u1095 \u1072 \u1081  (800 \u1084 \u1083 )</h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1060 \u1086 \u1088 \u1077 \u1089 \u1090  \u1095 \u1072 \u1081  \u1089  \u1089 \u1086 \u1089 \u1085 \u1086 \u1074 \u1099 \u1084 \u1080  \u1096 \u1080 \u1096 \u1082 \u1072 \u1084 \u1080 </div><div class="item-price">610 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1054 \u1073 \u1083 \u1077 \u1087 \u1080 \u1093 \u1086 \u1074 \u1099 \u1081  \u1095 \u1072 \u1081  \u1089  \u1088 \u1086 \u1079 \u1084 \u1072 \u1088 \u1080 \u1085 \u1086 \u1084 </div><div class="item-price">600 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1052 \u1072 \u1083 \u1080 \u1085 \u1086 \u1074 \u1099 \u1081  \u1089  \u1080 \u1084 \u1073 \u1080 \u1088 \u1105 \u1084 </div><div class="item-price">610 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1041 \u1088 \u1091 \u1089 \u1085 \u1080 \u1082 \u1072  \u1089  \u1095 \u1072 \u1073 \u1088 \u1077 \u1094 \u1086 \u1084 </div><div class="item-price">600 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1063 \u1077 \u1088 \u1077 \u1096 \u1085 \u1103 -\u1082 \u1072 \u1088 \u1082 \u1072 \u1076 \u1077 </div><div class="item-price">610 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1080 \u1085 \u1076 \u1079 \u1084 \u1072 \u1088 \u1072 \u1091 \u1083 \u1100 \u1089 \u1082 \u1080 \u1081  \u1073 \u1072 \u1088 \u1093 \u1072 \u1090 </div><div class="item-price">610 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1043 \u1086 \u1088 \u1085 \u1099 \u1081  \u1085 \u1077 \u1082 \u1090 \u1072 \u1088 </div><div class="item-price">610 \u8381 </div></div></div>\
+\
+       <h3 class="category-subtitle">\uc0\u1063 \u1072 \u1081  (800 \u1084 \u1083 )</h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1080 \u1090 \u1072 \u1081 \u1089 \u1082 \u1080 \u1081  \u1057 \u1077 \u1085 \u1095 \u1072 </div><div class="item-price">440 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1047 \u1077 \u1083 \u1105 \u1085 \u1099 \u1081  \u1089  \u1078 \u1072 \u1089 \u1084 \u1080 \u1085 \u1086 \u1084 </div><div class="item-price">440 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1058 \u1072 \u1105 \u1078 \u1085 \u1099 \u1081  \u1089 \u1073 \u1086 \u1088  \u1079 \u1077 \u1083 \u1105 \u1085 \u1099 \u1081 </div><div class="item-price">440 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1047 \u1077 \u1083 \u1105 \u1085 \u1099 \u1081  \u1095 \u1072 \u1081  \u1089  \u1095 \u1072 \u1073 \u1088 \u1077 \u1094 \u1086 \u1084 </div><div class="item-price">440 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1052 \u1086 \u1083 \u1086 \u1095 \u1085 \u1099 \u1081  \u1059 \u1083 \u1091 \u1085 </div><div class="item-price">440 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1042 \u1080 \u1085 \u1086 \u1075 \u1088 \u1072 \u1076 \u1085 \u1099 \u1081  \u1059 \u1083 \u1091 \u1085 </div><div class="item-price">440 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1058 \u1077  \u1043 \u1091 \u1072 \u1085 \u1100  \u1080 \u1085 \u1100 </div><div class="item-price">440 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1041 \u1083 \u1072 \u1075 \u1086 \u1088 \u1086 \u1076 \u1085 \u1099 \u1081  \u1040 \u1089 \u1089 \u1072 \u1084 </div><div class="item-price">440 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1063 \u1105 \u1088 \u1085 \u1099 \u1081  \u1095 \u1072 \u1081  \u1089  \u1095 \u1072 \u1073 \u1088 \u1077 \u1094 \u1086 \u1084 </div><div class="item-price">440 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1058 \u1072 \u1105 \u1078 \u1085 \u1099 \u1081  \u1089 \u1073 \u1086 \u1088  \u1095 \u1105 \u1088 \u1085 \u1099 \u1081 </div><div class="item-price">440 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1060 \u1088 \u1091 \u1082 \u1090 \u1086 \u1074 \u1099 \u1081  \u1089 \u1072 \u1076 </div><div class="item-price">440 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1058 \u1088 \u1072 \u1074 \u1103 \u1085 \u1086 \u1081  \u1089 \u1073 \u1086 \u1088  \u1082 \u1072 \u1074 \u1082 \u1072 \u1079 \u1089 \u1082 \u1080 \u1093  \u1090 \u1088 \u1072 \u1074 </div><div class="item-price">440 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1051 \u1080 \u1087 \u1086 \u1074 \u1099 \u1081 </div><div class="item-price">440 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1063 \u1072 \u1073 \u1088 \u1077 \u1094 </div><div class="item-price">440 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1064 \u1091 -\u1055 \u1091 \u1101 \u1088 </div><div class="item-price">440 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1043 \u1072 \u1073 \u1072 </div><div class="item-price">440 \u8381 </div></div></div>\
+\
+       <h3 class="category-subtitle">\uc0\u1050 \u1086 \u1092 \u1077 </h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1069 \u1089 \u1087 \u1088 \u1077 \u1089 \u1089 \u1086 </div><div class="item-price">230 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1044 \u1086 \u1087 \u1087 \u1080 \u1086 </div><div class="item-price">340 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1040 \u1084 \u1077 \u1088 \u1080 \u1082 \u1072 \u1085 \u1086 </div><div class="item-price">230 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1051 \u1091 \u1085 \u1075 \u1086 </div><div class="item-price">230 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1072 \u1087 \u1091 \u1095 \u1080 \u1085 \u1086 </div><div class="item-price">290 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1044 \u1074 \u1086 \u1081 \u1085 \u1086 \u1081  \u1082 \u1072 \u1087 \u1091 \u1095 \u1080 \u1085 \u1086 </div><div class="item-price">380 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1051 \u1072 \u1090 \u1090 \u1077 </div><div class="item-price">320 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1060 \u1083 \u1101 \u1090  \u1059 \u1072 \u1081 \u1090 </div><div class="item-price">350 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1072 \u1087 \u1091 \u1095 \u1080 \u1085 \u1086  \u1085 \u1072  \u1088 \u1072 \u1089 \u1090 \u1080 \u1090 \u1077 \u1083 \u1100 \u1085 \u1086 \u1084  \u1084 \u1086 \u1083 \u1086 \u1082 \u1077  (\u1082 \u1086 \u1082 \u1086 \u1089 \u1086 \u1074 \u1086 \u1077 , \u1084 \u1080 \u1085 \u1076 \u1072 \u1083 \u1100 \u1085 \u1086 \u1077 , \u1073 \u1072 \u1085 \u1072 \u1085 \u1086 \u1074 \u1086 \u1077 )</div><div class="item-price">360 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1083 \u1080 \u1074 \u1086 \u1095 \u1085 \u1099 \u1081  \u1088 \u1072 \u1092 </div><div class="item-price">360 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1099 \u1088 \u1085 \u1099 \u1081  \u1088 \u1072 \u1092 </div><div class="item-price">420 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1072 \u1082 \u1072 \u1086  \u1089  \u1084 \u1072 \u1088 \u1096 \u1084 \u1077 \u1083 \u1083 \u1086 \u1091 </div><div class="item-price">480 \u8381 </div></div></div>\
+\
+       <h3 class="category-subtitle">\uc0\u1050 \u1086 \u1092 \u1077  \u1074  \u1076 \u1078 \u1077 \u1079 \u1074 \u1077  (60 \u1084 \u1083 )</h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1041 \u1088 \u1072 \u1079 \u1080 \u1083 \u1080 \u1103 </div><div class="item-price">300 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1086 \u1092 \u1077  \u1089 \u1086  \u1089 \u1075 \u1091 \u1097 \u1105 \u1085 \u1085 \u1099 \u1084  \u1084 \u1086 \u1083 \u1086 \u1082 \u1086 \u1084 </div><div class="item-price">310 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1086 \u1092 \u1077  \u1089  \u1082 \u1072 \u1088 \u1076 \u1072 \u1084 \u1086 \u1085 \u1086 \u1084 </div><div class="item-price">300 \u8381 </div></div></div>\
+\
+       <h3 class="category-subtitle">\uc0\u1043 \u1086 \u1088 \u1103 \u1095 \u1080 \u1077  \u1085 \u1072 \u1087 \u1080 \u1090 \u1082 \u1080 </h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1054 \u1073 \u1083 \u1077 \u1087 \u1080 \u1093 \u1086 \u1074 \u1099 \u1081  \u1089 \u1073 \u1080 \u1090 \u1077 \u1085 \u1100 </div><div class="item-price">495 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1086 \u1075 \u1088 \u1077 \u1074 \u1072 \u1102 \u1097 \u1080 \u1081  \u1089 \u1073 \u1080 \u1090 \u1077 \u1085 \u1100 </div><div class="item-price">650 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1043 \u1083 \u1080 \u1085 \u1090 \u1074 \u1077 \u1081 \u1085 </div><div class="item-price">650 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1043 \u1086 \u1088 \u1103 \u1095 \u1080 \u1081  \u1072 \u1087 \u1077 \u1088 \u1086 \u1083 \u1100 </div><div class="item-price">590 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1071 \u1073 \u1083 \u1086 \u1095 \u1085 \u1099 \u1081  \u1075 \u1088 \u1086 \u1075 </div><div class="item-price">590 \u8381 </div></div></div>\
+\
+       <!-- \uc0\u1051 \u1048 \u1052 \u1054 \u1053 \u1040 \u1044 \u1067 , \u1057 \u1054 \u1050 \u1048 , \u1052 \u1048 \u1051 \u1050 \u1064 \u1045 \u1049 \u1050 \u1048  -->\
+       <h2 class="category-title" id="lemonades">\uc0\u1051 \u1080 \u1084 \u1086 \u1085 \u1072 \u1076 \u1099 , \u1057 \u1086 \u1082 \u1080 , \u1052 \u1086 \u1088 \u1089 \u1099 </h2>\
+\
+       <h3 class="category-subtitle">\uc0\u1051 \u1080 \u1084 \u1086 \u1085 \u1072 \u1076 \u1099  (350 \u1084 \u1083 )</h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1065 \u1072 \u1074 \u1077 \u1083 \u1077 \u1074 \u1099 \u1081  \u1083 \u1080 \u1084 \u1086 \u1085 \u1072 \u1076 </div><div class="item-price">450 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1051 \u1072 \u1081 \u1084 -\u1051 \u1077 \u1084 \u1086 \u1085 \u1075 \u1088 \u1072 \u1089 \u1089 </div><div class="item-price">440 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1040 \u1085 \u1072 \u1085 \u1072 \u1089 -\u1073 \u1072 \u1079 \u1080 \u1083 \u1080 \u1082 </div><div class="item-price">450 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1052 \u1086 \u1093 \u1080 \u1090 \u1086  \u1073 /\u1072 \u1083 \u1082 .</div><div class="item-price">440 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1052 \u1086 \u1093 \u1080 \u1090 \u1086  \u1073 /\u1072 \u1083 \u1082 . \u1050 \u1083 \u1091 \u1073 \u1085 \u1080 \u1095 \u1085 \u1099 \u1081 </div><div class="item-price">450 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1083 \u1072 \u1089 \u1089 \u1080 \u1095 \u1077 \u1089 \u1082 \u1080 \u1081 </div><div class="item-price">440 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1080 \u1074 \u1080 -\u1086 \u1075 \u1091 \u1088 \u1077 \u1094 </div><div class="item-price">450 \u8381 </div></div></div>\
+\
+       <h3 class="category-subtitle">\uc0\u1051 \u1080 \u1084 \u1086 \u1085 \u1072 \u1076 \u1099  \u1085 \u1072  \u1082 \u1086 \u1084 \u1087 \u1072 \u1085 \u1080 \u1102  (1000 \u1084 \u1083 )</h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1051 \u1072 \u1081 \u1084 -\u1051 \u1077 \u1084 \u1086 \u1085 \u1075 \u1088 \u1072 \u1089 \u1089 </div><div class="item-price">800 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1040 \u1085 \u1072 \u1085 \u1072 \u1089 -\u1073 \u1072 \u1079 \u1080 \u1083 \u1080 \u1082 </div><div class="item-price">820 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1065 \u1072 \u1074 \u1077 \u1083 \u1077 \u1074 \u1099 \u1081  \u1083 \u1080 \u1084 \u1086 \u1085 \u1072 \u1076 </div><div class="item-price">830 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1083 \u1072 \u1089 \u1089 \u1080 \u1095 \u1077 \u1089 \u1082 \u1080 \u1081 </div><div class="item-price">810 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1080 \u1074 \u1080 -\u1086 \u1075 \u1091 \u1088 \u1077 \u1094 </div><div class="item-price">820 \u8381 </div></div></div>\
+\
+       <h3 class="category-subtitle">\uc0\u1057 \u1074 \u1077 \u1078 \u1077 \u1074 \u1099 \u1078 \u1072 \u1090 \u1099 \u1081  \u1089 \u1086 \u1082  (250 \u1084 \u1083 )</h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1071 \u1073 \u1083 \u1086 \u1095 \u1085 \u1099 \u1081 </div><div class="item-price">480 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1052 \u1086 \u1088 \u1082 \u1086 \u1074 \u1085 \u1099 \u1081 </div><div class="item-price">480 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1040 \u1087 \u1077 \u1083 \u1100 \u1089 \u1080 \u1085 \u1086 \u1074 \u1099 \u1081 </div><div class="item-price">490 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1043 \u1088 \u1077 \u1081 \u1087 \u1092 \u1088 \u1091 \u1090 \u1086 \u1074 \u1099 \u1081 </div><div class="item-price">490 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1077 \u1083 \u1100 \u1076 \u1077 \u1088 \u1077 \u1077 \u1074 \u1099 \u1081 </div><div class="item-price">480 \u8381 </div></div></div>\
+\
+       <h3 class="category-subtitle">\uc0\u1052 \u1086 \u1088 \u1089 \u1099 /\u1057 \u1086 \u1082 \u1080  (250 \u1084 \u1083 )</h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1071 \u1075 \u1086 \u1076 \u1085 \u1099 \u1081  \u1084 \u1086 \u1088 \u1089 </div><div class="item-price">230 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1086 \u1084 \u1087 \u1086 \u1090  \u1080 \u1079  \u1095 \u1105 \u1088 \u1085 \u1086 \u1081  \u1089 \u1084 \u1086 \u1088 \u1086 \u1076 \u1080 \u1085 \u1099 </div><div class="item-price">230 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1059 \u1079 \u1074 \u1072 \u1088  \u1080 \u1079  \u1089 \u1091 \u1093 \u1086 \u1092 \u1088 \u1091 \u1082 \u1090 \u1086 \u1074 </div><div class="item-price">230 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1086 \u1082 \u1080  \u1080  \u1085 \u1077 \u1082 \u1090 \u1072 \u1088 \u1099  (\u1072 \u1087 \u1077 \u1083 \u1100 \u1089 \u1080 \u1085 , \u1103 \u1073 \u1083 \u1086 \u1082 \u1086 , \u1072 \u1085 \u1072 \u1085 \u1072 \u1089 , \u1090 \u1086 \u1084 \u1072 \u1090 , \u1074 \u1080 \u1096 \u1085 \u1103 )</div><div class="item-price">230 \u8381 </div></div></div>\
+\
+       <h3 class="category-subtitle">\uc0\u1052 \u1080 \u1083 \u1082 \u1096 \u1077 \u1081 \u1082 \u1080  (300 \u1084 \u1083 )</h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1041 \u1072 \u1085 \u1072 \u1085 \u1086 \u1074 \u1072 \u1103  Nutella</div><div class="item-price">550 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1083 \u1091 \u1073 \u1085 \u1080 \u1095 \u1085 \u1099 \u1081  \u1088 \u1072 \u1081 </div><div class="item-price">530 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1083 \u1072 \u1089 \u1089 \u1080 \u1095 \u1077 \u1089 \u1082 \u1080 \u1081 </div><div class="item-price">510 \u8381 </div></div></div>\
+\
+       <h3 class="category-subtitle">\uc0\u1053 \u1072 \u1087 \u1080 \u1090 \u1082 \u1080  (\u1073 \u1091 \u1090 \u1099 \u1083 \u1082 \u1080 )</h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1042 \u1086 \u1076 \u1072  \u1044 \u1078 \u1080 \u1075 \u1077 \u1084  0,5 \u1083 </div><div class="item-price">250 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1041 \u1086 \u1088 \u1078 \u1086 \u1084 \u1080  0,5 \u1083 </div><div class="item-price">390 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1053 \u1072 \u1084 \u1072 \u1093 \u1084 \u1072 \u1088 \u1080  0,5 \u1083 </div><div class="item-price">320 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Coca-Cola 0,33 \uc0\u1083 </div><div class="item-price">350 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1069 \u1074 \u1077 \u1088 \u1074 \u1077 \u1089 \u1090  \u1090 \u1086 \u1085 \u1080 \u1082  0,33 \u1083 </div><div class="item-price">330 \u8381 </div></div></div>\
+\
+       <!-- \uc0\u1040 \u1051 \u1050 \u1054 \u1043 \u1054 \u1051 \u1068  -->\
+       <h2 class="category-title" id="alcohol">\uc0\u1050 \u1088 \u1077 \u1087 \u1082 \u1080 \u1081  \u1072 \u1083 \u1082 \u1086 \u1075 \u1086 \u1083 \u1100 </h2>\
+\
+       <h3 class="category-subtitle">\uc0\u1044 \u1086 \u1084 \u1072 \u1096 \u1085 \u1080 \u1077  \u1085 \u1072 \u1089 \u1090 \u1086 \u1081 \u1082 \u1080  (50 \u1084 \u1083 )</h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1044 \u1077 \u1075 \u1091 \u1089 \u1090 \u1072 \u1094 \u1080 \u1086 \u1085 \u1085 \u1099 \u1081  \u1085 \u1072 \u1073 \u1086 \u1088  6 \u1085 \u1072 \u1089 \u1090 \u1086 \u1077 \u1082 </div><div class="item-price">1590 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1051 \u1080 \u1084 \u1086 \u1085 \u1095 \u1077 \u1083 \u1083 \u1086  / \u1057 \u1084 \u1086 \u1088 \u1086 \u1076 \u1080 \u1085 \u1072  / \u1055 \u1077 \u1088 \u1094 \u1086 \u1074 \u1082 \u1072  / \u1054 \u1073 \u1083 \u1077 \u1087 \u1080 \u1093 \u1072  / \u1052 \u1072 \u1083 \u1080 \u1085 \u1072 -\u1083 \u1077 \u1084 \u1086 \u1085 \u1075 \u1088 \u1072 \u1089 \u1089  / \u1057 \u1077 \u1079 \u1086 \u1085 \u1085 \u1072 \u1103  / \u1041 \u1086 \u1088 \u1086 \u1076 \u1080 \u1085 \u1089 \u1082 \u1072 \u1103  \u1093 \u1088 \u1077 \u1085 \u1086 \u1074 \u1091 \u1093 \u1072  / \u1063 \u1105 \u1088 \u1085 \u1099 \u1081  \u1095 \u1077 \u1089 \u1085 \u1086 \u1082  / \u1059 \u1082 \u1088 \u1086 \u1087 \u1086 \u1074 \u1082 \u1072  / \u1060 \u1077 \u1081 \u1093 \u1086 \u1072 -\u1075 \u1088 \u1077 \u1081 \u1087 \u1092 \u1088 \u1091 \u1090  / \u1063 \u1077 \u1088 \u1077 \u1096 \u1085 \u1103 -\u1082 \u1086 \u1088 \u1080 \u1094 \u1072 </div><div class="item-price">290 \u8381 </div></div></div>\
+\
+       <h3 class="category-subtitle">\uc0\u1044 \u1080 \u1089 \u1090 \u1080 \u1083 \u1083 \u1103 \u1090 \u1099  (50 \u1084 \u1083 )</h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1072 \u1084 \u1086 \u1074 \u1072 \u1088  \u1056 \u1078 \u1072 \u1085 \u1086 \u1081  38,5\'b0</div><div class="item-price">350 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1072 \u1084 \u1086 \u1074 \u1072 \u1088  \u1071 \u1073 \u1083 \u1086 \u1095 \u1085 \u1099 \u1081  42\'b0</div><div class="item-price">400 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1052 \u1086 \u1088 \u1091 \u1089  \u1055 \u1077 \u1088 \u1089 \u1080 \u1082  44\'b0</div><div class="item-price">600 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1052 \u1086 \u1088 \u1091 \u1089  \u1044 \u1080 \u1082 \u1072 \u1103  \u1043 \u1088 \u1091 \u1096 \u1072  42\'b0</div><div class="item-price">600 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1052 \u1086 \u1088 \u1091 \u1089  \u1061 \u1091 \u1088 \u1084 \u1072  44\'b0</div><div class="item-price">600 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1052 \u1086 \u1088 \u1091 \u1089  \u1040 \u1073 \u1088 \u1080 \u1082 \u1086 \u1089  50\'b0</div><div class="item-price">700 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1063 \u1072 \u1095 \u1072  \u1040 \u1089 \u1082 \u1072 \u1085 \u1077 \u1083 \u1080  \u1055 \u1083 \u1072 \u1090 \u1080 \u1085 \u1091 \u1084  40\'b0</div><div class="item-price">450 \u8381 </div></div></div>\
+\
+       <h3 class="category-subtitle">\uc0\u1042 \u1080 \u1089 \u1082 \u1080  (50 \u1084 \u1083 )</h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Auchentoshan 12 Years Old</div><div class="item-price">950 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Laphroaig 10 Years Old</div><div class="item-price">1500 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Glenmorangie The Quinta Ruban 14 Years Old</div><div class="item-price">1600 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Macallan Double Cask 12 Years Old</div><div class="item-price">2000 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Dewar's White Label</div><div class="item-price">600 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Dewar's 8 Years Old French Smooth</div><div class="item-price">700 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Chivas Regal 12 Years Old</div><div class="item-price">700 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Chivas Regal 18 Years Old</div><div class="item-price">1500 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Jameson</div><div class="item-price">600 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Bushmills Black Bush</div><div class="item-price">800 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Bushmills Single Malt 10 Years Old</div><div class="item-price">1200 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Jim Beam</div><div class="item-price">500 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Jack Daniels</div><div class="item-price">700 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Maker's Mark</div><div class="item-price">900 \uc0\u8381 </div></div></div>\
+\
+       <h3 class="category-subtitle">\uc0\u1044 \u1078 \u1080 \u1085 , \u1058 \u1077 \u1082 \u1080 \u1083 \u1072 , \u1042 \u1086 \u1076 \u1082 \u1072 , \u1042 \u1077 \u1088 \u1084 \u1091 \u1090  (50 \u1084 \u1083 )</h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Bosford</div><div class="item-price">450 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Brass Monkey Modern Dry</div><div class="item-price">500 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Bombay Sapphire</div><div class="item-price">650 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Olmeca Silver</div><div class="item-price">550 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Jose Cuervo Especial Reposado</div><div class="item-price">550 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Espolon Blanco</div><div class="item-price">850 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1041 \u1072 \u1083 \u1095 \u1091 \u1075  XXI \u1074 \u1077 \u1082 </div><div class="item-price">250 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1040 \u1088 \u1082 \u1090 \u1080 \u1082 \u1072 </div><div class="item-price">350 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1052 \u1072 \u1084 \u1086 \u1085 \u1090 </div><div class="item-price">450 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1054 \u1085 \u1077 \u1075 \u1080 \u1085 </div><div class="item-price">500 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1063 \u1080 \u1089 \u1090 \u1099 \u1077  \u1088 \u1086 \u1089 \u1099 </div><div class="item-price">600 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Grey Goose</div><div class="item-price">700 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Martini (Bianco, Extra dry, Fiero, Rosso) <span class="item-weight">100 \uc0\u1084 \u1083 </span></div><div class="item-price">750 \u8381 </div></div></div>\
+\
+       <h3 class="category-subtitle">\uc0\u1051 \u1080 \u1082 \u1077 \u1088 \u1099  \u1041 \u1080 \u1090 \u1090 \u1077 \u1088 \u1099  (50 \u1084 \u1083 )</h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Aperol</div><div class="item-price">400 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Baileys, Original</div><div class="item-price">450 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Becherovka</div><div class="item-price">450 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Jagermeister</div><div class="item-price">450 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1052 \u1086 \u1088 \u1091 \u1089  \u1040 \u1073 \u1088 \u1080 \u1082 \u1086 \u1089 \u1086 \u1074 \u1099 \u1081  \u1051 \u1080 \u1082 \u1105 \u1088 </div><div class="item-price">500 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Sarti Rosa</div><div class="item-price">550 \uc0\u8381 </div></div></div>\
+\
+       <h3 class="category-subtitle">\uc0\u1050 \u1072 \u1083 \u1100 \u1074 \u1072 \u1076 \u1086 \u1089 , \u1050 \u1086 \u1085 \u1100 \u1103 \u1082  (50 \u1084 \u1083 )</h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Pere Magloire, VSOP</div><div class="item-price">1200 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Monnet VS</div><div class="item-price">900 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Courvoisier VS</div><div class="item-price">1200 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Courvoisier VSOP</div><div class="item-price">1700 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Roullet Cadet XO</div><div class="item-price">2000 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1040 \u1088 \u1072 \u1088 \u1072 \u1090  5 \u1083 \u1077 \u1090 </div><div class="item-price">500 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1040 \u1088 \u1072 \u1088 \u1072 \u1090  \u1040 \u1073 \u1088 \u1080 \u1082 \u1086 \u1089 </div><div class="item-price">600 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1086 \u1082 \u1090 \u1077 \u1073 \u1077 \u1083 \u1100  \u1050 \u1057  11 \u1083 \u1077 \u1090 </div><div class="item-price">650 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1053 \u1086 \u1081  \u1050 \u1083 \u1072 \u1089 \u1089 \u1080 \u1082  7 \u1083 \u1077 \u1090 </div><div class="item-price">750 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1041 \u1072 \u1075 \u1088 \u1072 \u1090 \u1080 \u1086 \u1085  \u1054 \u1057  20 \u1083 \u1077 \u1090 </div><div class="item-price">1600 \u8381 </div></div></div>\
+\
+       <!-- \uc0\u1042 \u1048 \u1053 \u1054  -->\
+       <h2 class="category-title" id="wine">\uc0\u1042 \u1080 \u1085 \u1085 \u1072 \u1103  \u1082 \u1072 \u1088 \u1090 \u1072 </h2>\
+       <p class="category-subtitle">\uc0\u1062 \u1077 \u1085 \u1099  \u1091 \u1082 \u1072 \u1079 \u1072 \u1085 \u1099  \u1079 \u1072  \u1073 \u1091 \u1090 \u1099 \u1083 \u1082 \u1091  \u1080 \u1083 \u1080  \u1079 \u1072  \u1073 \u1086 \u1082 \u1072 \u1083  (\u1077 \u1089 \u1083 \u1080  \u1091 \u1082 \u1072 \u1079 \u1072 \u1085 \u1086  \u1095 \u1077 \u1088 \u1077 \u1079  \u1076 \u1088 \u1086 \u1073 \u1100 )</p>\
+\
+       <h3 class="category-subtitle">Sparkling (\uc0\u1048 \u1075 \u1088 \u1080 \u1089 \u1090 \u1099 \u1077 )</h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1041 \u1072 \u1083 \u1072 \u1082 \u1083 \u1072 \u1074 \u1072 , \u1064 \u1072 \u1088 \u1076 \u1086 \u1085 \u1077  \u1073 \u1088 \u1102 \u1090 </div><div class="item-price">2500 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1041 \u1072 \u1083 \u1072 \u1082 \u1083 \u1072 \u1074 \u1072 , \u1055 \u1080 \u1085 \u1086  \u1053 \u1091 \u1072 \u1088  \u1073 \u1088 \u1102 \u1090 </div><div class="item-price">2500 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1041 \u1072 \u1083 \u1072 \u1082 \u1083 \u1072 \u1074 \u1072 , \u1052 \u1091 \u1089 \u1082 \u1072 \u1090  \u1087 \u1086 \u1083 \u1091 \u1089 \u1083 \u1072 \u1076 \u1082 \u1086 \u1077 </div><div class="item-price">2500 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1102 \u1074 \u1077  \u1076 \u1077  \u1042 \u1080 \u1090 \u1084 \u1077 \u1088 , \u1047 \u1086 \u1083 \u1086 \u1090 \u1072 \u1103  \u1041 \u1072 \u1083 \u1082 \u1072 , \u1041 \u1088 \u1102 \u1090 </div><div class="item-price">4400 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Bruni Asti, \uc0\u1089 \u1083 \u1072 \u1076 \u1082 \u1086 \u1077 </div><div class="item-price">3000 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Prosecco Brut, Bruni</div><div class="item-price">780 / 3900 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Cuis Premier Cru Blanc de Blancs Brut, Pierre Gimonnet & Fils</div><div class="item-price">17200 \uc0\u8381 </div></div></div>\
+\
+       <h3 class="category-subtitle">White (\uc0\u1041 \u1077 \u1083 \u1099 \u1077 )</h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Dragon Bay Albarino, \uc0\u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">2850 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Simonsig Sauvignon Blanc / Semillon, \uc0\u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">650 / 3900 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Hans Baer Riesling, \uc0\u1087 \u1086 \u1083 \u1091 \u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">650 / 3900 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Hans Baer Gewurztraminer, \uc0\u1087 \u1086 \u1083 \u1091 \u1089 \u1083 \u1072 \u1076 \u1082 \u1086 \u1077 </div><div class="item-price">715 / 4300 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Pfefferer, \uc0\u1087 \u1086 \u1083 \u1091 \u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">4800 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Pinot Bianco, Cantina Terlan, \uc0\u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">10900 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Luigi Bosca Chardonnay, \uc0\u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">4950 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1056 \u1080 \u1089 \u1083 \u1080 \u1085 \u1075 , \u1057 \u1080 \u1082 \u1086 \u1088 \u1099 , \u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">4600 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1055 \u1077 \u1090 \u1088 \u1080 \u1082 \u1077 \u1088  \u1052 \u1072 \u1083 \u1100 \u1074 \u1072 \u1079 \u1080 \u1103 , \u1064 \u1091 \u1084 \u1088 \u1080 \u1085 \u1082 \u1072 , \u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">5500 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Paddle Creek Sauvignon Blanc, Lake Road, \uc0\u1087 \u1086 \u1083 \u1091 \u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">750 / 4500 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Coteaux Bourguignons Blanc, Domaines Dominique Piron, \uc0\u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">8250 \u8381 </div></div></div>\
+\
+       <h3 class="category-subtitle">Red (\uc0\u1050 \u1088 \u1072 \u1089 \u1085 \u1099 \u1077 )</h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1077 \u1084 \u1080 \u1089 \u1072 \u1084  \u1064 \u1091 \u1084 \u1088 \u1080 \u1085 \u1082 \u1072 , \u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">2900 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1043 \u1077 \u1088 \u1080 \u1079 , \u1057 \u1080 \u1082 \u1086 \u1088 \u1099 , \u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">4200 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1060 \u1077 \u1089 \u1090 \u1084 \u1077 \u1083 \u1080 \u1103 , \u1053 \u1080 \u1082 \u1086 \u1083 \u1072 \u1077 \u1074  \u1080  \u1057 \u1099 \u1085 \u1086 \u1074 \u1100 \u1103 , \u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">4400 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Gathering Storm, \uc0\u1087 \u1086 \u1083 \u1091 \u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">650 / 3900 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">El Picaro, Matsu, \uc0\u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">4150 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Chianti, Conti Serristor, \uc0\u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">3900 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Simonsig Cabernet Sauvignon / Shiraz, \uc0\u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">650 / 3900 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Simonsig Pinotage, \uc0\u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">4800 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Cape Original Pinotage, \uc0\u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">3200 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Carolina Reserva Carmenere, Santa Carolina, \uc0\u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">625 / 3750 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Carolina Reserva Cabernet Sauvignon, Santa Carolina, \uc0\u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">3750 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Carolina Reserva Pinot Noir, Santa Carolina, \uc0\u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">3750 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Kindzmarauli Kvareti, \uc0\u1087 \u1086 \u1083 \u1091 \u1089 \u1083 \u1072 \u1076 \u1082 \u1086 \u1077 </div><div class="item-price">2800 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Kindzmarauli Binehki, \uc0\u1087 \u1086 \u1083 \u1091 \u1089 \u1083 \u1072 \u1076 \u1082 \u1086 \u1077 </div><div class="item-price">820 / 4900 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Saperavi, Binehki, \uc0\u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">780 / 4700 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Luigi Bosca Cabernet Sauvignon, \uc0\u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">5350 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">De sangra Malbec, Luigi Bosca, \uc0\u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">9400 \u8381 </div></div></div>\
+\
+       <h3 class="category-subtitle">Rose / Orange / \uc0\u1044 \u1088 \u1091 \u1075 \u1086 \u1077 </h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1050 \u1072 \u1073 \u1077 \u1088 \u1085 \u1077  \u1060 \u1088 \u1072 \u1085  \u1056 \u1086 \u1079 \u1077 , \u1057 \u1080 \u1082 \u1086 \u1088 \u1099 , \u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">3900 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1051 \u1086 \u1082 \u1086  \u1063 \u1080 \u1084 \u1073 \u1072 \u1083 \u1080  \u1054 \u1088 \u1072 \u1085 \u1078 , \u1051 \u1086 \u1082 \u1086  \u1063 \u1080 \u1084 \u1073 \u1072 \u1083 \u1080 , \u1089 \u1091 \u1093 \u1086 \u1077 </div><div class="item-price">750 / 4500 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1043 \u1088 \u1072 \u1085 \u1072 \u1090 \u1086 \u1074 \u1086 \u1077  \u1074 \u1080 \u1085 \u1086 </div><div class="item-price">550 / 3300 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Tres Arcos Ruby Port <span class="item-weight">75 \uc0\u1084 \u1083 </span></div><div class="item-price">540 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Tres Arcos Tawny Porto <span class="item-weight">75 \uc0\u1084 \u1083 </span></div><div class="item-price">540 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Le Grand Noir Grenache Blanc-Chardonnay, 0,0% (\uc0\u1073 /\u1072 \u1083 \u1082 )</div><div class="item-price">650 / 3900 \u8381 </div></div></div>\
+\
+       <h3 class="category-subtitle">\uc0\u1042 \u1099 \u1073 \u1086 \u1088  \u1073 \u1077 \u1079  \u1074 \u1099 \u1073 \u1086 \u1088 \u1072 </h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1042 \u1080 \u1085 \u1086  \u1089  \u1084 \u1080 \u1085 \u1080 \u1084 \u1072 \u1083 \u1100 \u1085 \u1086 \u1081  \u1085 \u1072 \u1094 \u1077 \u1085 \u1082 \u1086 \u1081  (\u1073 \u1077 \u1083 \u1086 \u1077  \u1080 \u1083 \u1080  \u1082 \u1088 \u1072 \u1089 \u1085 \u1086 \u1077  \u1085 \u1072  \u1074 \u1099 \u1073 \u1086 \u1088 )</div><div class="item-price">1900 \u8381 </div></div><div class="item-desc">\u1042 \u1080 \u1085 \u1072  \u1080 \u1079  \u1101 \u1090 \u1086 \u1081  \u1082 \u1072 \u1090 \u1077 \u1075 \u1086 \u1088 \u1080 \u1080  \u1087 \u1088 \u1077 \u1076 \u1083 \u1072 \u1075 \u1072 \u1102 \u1090 \u1089 \u1103  \u1089  \u1084 \u1080 \u1085 \u1080 \u1084 \u1072 \u1083 \u1100 \u1085 \u1086 \u1081  \u1085 \u1072 \u1094 \u1077 \u1085 \u1082 \u1086 \u1081 . \u1042 \u1099  \u1074 \u1099 \u1073 \u1080 \u1088 \u1072 \u1077 \u1090 \u1077  \u1090 \u1086 \u1083 \u1100 \u1082 \u1086  \u1094 \u1074 \u1077 \u1090  \'97 \u1073 \u1077 \u1083 \u1086 \u1077  \u1080 \u1083 \u1080  \u1082 \u1088 \u1072 \u1089 \u1085 \u1086 \u1077 . \u1050 \u1086 \u1085 \u1082 \u1088 \u1077 \u1090 \u1085 \u1091 \u1102  \u1087 \u1086 \u1079 \u1080 \u1094 \u1080 \u1102  \u1087 \u1086 \u1076 \u1073 \u1080 \u1088 \u1072 \u1077 \u1090  \u1086 \u1092 \u1080 \u1094 \u1080 \u1072 \u1085 \u1090  \u1080 \u1079  \u1076 \u1086 \u1089 \u1090 \u1091 \u1087 \u1085 \u1086 \u1075 \u1086  \u1072 \u1089 \u1089 \u1086 \u1088 \u1090 \u1080 \u1084 \u1077 \u1085 \u1090 \u1072 . \u1042 \u1080 \u1085 \u1072  \u1084 \u1077 \u1085 \u1103 \u1102 \u1090 \u1089 \u1103  \u1080  \u1076 \u1086 \u1089 \u1090 \u1091 \u1087 \u1085 \u1099  \u1074  \u1086 \u1075 \u1088 \u1072 \u1085 \u1080 \u1095 \u1077 \u1085 \u1085 \u1086 \u1084  \u1082 \u1086 \u1083 \u1080 \u1095 \u1077 \u1089 \u1090 \u1074 \u1077 .</div></div>\
+\
+       <!-- \uc0\u1050 \u1054 \u1050 \u1058 \u1045 \u1049 \u1051 \u1048  \u1048  \u1055 \u1048 \u1042 \u1054  -->\
+       <h2 class="category-title" id="cocktails">\uc0\u1050 \u1086 \u1082 \u1090 \u1077 \u1081 \u1083 \u1080  \u1080  \u1055 \u1080 \u1074 \u1086 </h2>\
+\
+       <h3 class="category-subtitle">\uc0\u1054 \u1092 \u1080 \u1094 \u1080 \u1072 \u1083 \u1100 \u1085 \u1072 \u1103  \u1082 \u1083 \u1072 \u1089 \u1089 \u1080 \u1082 \u1072 </h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1054 \u1083 \u1076  \u1060 \u1101 \u1096 \u1085 </div><div class="item-price">720 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Gin Basil Smash</div><div class="item-price">710 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1053 \u1077 \u1075 \u1088 \u1086 \u1085 \u1080 </div><div class="item-price">720 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Daiquiri</div><div class="item-price">720 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1040 \u1087 \u1077 \u1088 \u1086 \u1083 \u1100  \u1057 \u1087 \u1088 \u1080 \u1094 </div><div class="item-price">720 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1060 \u1080 \u1077 \u1088 \u1086 -\u1058 \u1086 \u1085 \u1080 \u1082 </div><div class="item-price">720 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Long Island Iced Tea</div><div class="item-price">720 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Gin and Tonic</div><div class="item-price">710 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Margarita</div><div class="item-price">740 \uc0\u8381 </div></div></div>\
+\
+       <h3 class="category-subtitle">\uc0\u1040 \u1074 \u1090 \u1086 \u1088 \u1089 \u1082 \u1080 \u1077  \u1082 \u1086 \u1082 \u1090 \u1077 \u1081 \u1083 \u1080 </h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Cherry sour</div><div class="item-price">710 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1041 \u1072 \u1088 \u1073 \u1072 \u1088 \u1080 \u1089 \u1086 \u1074 \u1099 \u1081  \u1093 \u1072 \u1081 \u1073 \u1086 \u1083 </div><div class="item-price">720 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1040 \u1085 \u1075 \u1083 \u1080 \u1081 \u1089 \u1082 \u1080 \u1081  \u1083 \u1077 \u1089 </div><div class="item-price">720 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1063 \u1077 \u1088 \u1105 \u1084 \u1091 \u1093 \u1072 -\u1074 \u1072 \u1089 \u1080 \u1083 \u1100 \u1082 \u1080 </div><div class="item-price">720 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Aztec</div><div class="item-price">720 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1041 \u1077 \u1088 \u1105 \u1079 \u1086 \u1074 \u1099 \u1081  \u1093 \u1072 \u1081 \u1073 \u1086 \u1083 </div><div class="item-price">720 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1052 \u1072 \u1093 \u1091 \u1085 \u1094 \u1077 \u1090 \u1080 </div><div class="item-price">720 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Lemon pie</div><div class="item-price">710 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Island Apricot</div><div class="item-price">720 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Aperol non alcohol</div><div class="item-price">510 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1063 \u1077 \u1088 \u1105 \u1084 \u1091 \u1093 \u1072 -\u1074 \u1072 \u1089 \u1080 \u1083 \u1100 \u1082 \u1080  \u1073 /\u1072 \u1083 \u1082 </div><div class="item-price">540 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Paloma</div><div class="item-price">720 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1044 \u1077 \u1084 \u1077 \u1088 \u1072 \u1088 \u1072 </div><div class="item-price">720 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Limoncello Spritz</div><div class="item-price">720 \uc0\u8381 </div></div></div>\
+\
+       <h3 class="category-subtitle">\uc0\u1055 \u1080 \u1074 \u1086  \u1080  \u1089 \u1080 \u1076 \u1088  \u1085 \u1072  \u1082 \u1088 \u1072 \u1085 \u1077  (330/500 \u1084 \u1083 )</h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1080 \u1076 \u1088  \u1041 \u1072 \u1088 \u1072 \u1096 \u1077 \u1082 </div><div class="item-price">390 / 490 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Pan Baran</div><div class="item-price">410 / 550 \uc0\u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Hopfen Krone</div><div class="item-price">410 / 550 \uc0\u8381 </div></div></div>\
+\
+       <h3 class="category-subtitle">\uc0\u1055 \u1080 \u1074 \u1086  (\u1073 \u1091 \u1090 \u1099 \u1083 \u1082 \u1080 )</h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Clausthaler \uc0\u1073 /\u1072 \u1083 \u1082  <span class="item-weight">330 \u1084 \u1083 </span></div><div class="item-price">390 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\'abCernovar\'bb Cerne <span class="item-weight">500 \uc0\u1084 \u1083 </span></div><div class="item-price">690 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Spaten <span class="item-weight">500 \uc0\u1084 \u1083 </span></div><div class="item-price">680 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Liebenweiss Hefe-Weissbier <span class="item-weight">500 \uc0\u1084 \u1083 </span></div><div class="item-price">720 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Ayinger Bairisch Pils <span class="item-weight">500 \uc0\u1084 \u1083 </span></div><div class="item-price">910 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Arcobr\'e4u <span class="item-weight">500 \uc0\u1084 \u1083 </span></div><div class="item-price">680 \u8381 </div></div></div>\
+\
+       <h3 class="category-subtitle">\uc0\u1057 \u1080 \u1076 \u1088  (\u1073 \u1091 \u1090 \u1099 \u1083 \u1082 \u1080 )</h3>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Nympho Alkohol Free <span class="item-weight">330 \uc0\u1084 \u1083 </span></div><div class="item-price">490 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1080 \u1076 \u1088  \u1044 \u1099 \u1085 \u1103 -\u1052 \u1072 \u1088 \u1072 \u1082 \u1091 \u1081 \u1103  <span class="item-weight">500 \u1084 \u1083 </span></div><div class="item-price">490 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1080 \u1076 \u1088  \u1044 \u1072 \u1095 \u1072  \u1074  \u1072 \u1089 \u1089 \u1086 \u1088 \u1090 \u1080 \u1084 \u1077 \u1085 \u1090 \u1077  <span class="item-weight">500 \u1084 \u1083 </span></div><div class="item-price">590 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">\uc0\u1057 \u1080 \u1076 \u1088  \u1074 \u1080 \u1096 \u1085 \u1103 -\u1084 \u1080 \u1085 \u1076 \u1072 \u1083 \u1100  <span class="item-weight">500 \u1084 \u1083 </span></div><div class="item-price">490 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Barkaiztegi Gorenak Natural <span class="item-weight">750 \uc0\u1084 \u1083 </span></div><div class="item-price">1750 \u8381 </div></div></div>\
+       <div class="menu-item"><div class="item-header"><div class="item-name">Bellot Brut <span class="item-weight">750 \uc0\u1084 \u1083 </span></div><div class="item-price">1750 \u8381 </div></div></div>\
+\
+   </main>\
+\
+   <footer>\
+       <p>\uc0\u1064 \u1072 \u1096 \u1083 \u1099 \u1095 \u1085 \u1072 \u1103  \'ab\u1041 \u1072 \u1088 \u1072 \u1096 \u1077 \u1082 \'bb</p>\
+       <p style="margin-top: 10px; opacity: 0.7; font-size: 12px;">\uc0\u1055 \u1088 \u1080 \u1103 \u1090 \u1085 \u1086 \u1075 \u1086  \u1072 \u1087 \u1087 \u1077 \u1090 \u1080 \u1090 \u1072 !</p>\
+   </footer>\
+\
+   <!-- \uc0\u1057 \u1082 \u1088 \u1080 \u1087 \u1090  \u1076 \u1083 \u1103  \u1087 \u1086 \u1080 \u1089 \u1082 \u1072  \u1087 \u1086  \u1084 \u1077 \u1085 \u1102  -->\
+   <script>\
+       document.getElementById('searchInput').addEventListener('input', function(e) \{\
+           let searchText = e.target.value.toLowerCase().trim();\
+           let items = document.querySelectorAll('.menu-item');\
+           let categories = document.querySelectorAll('.category-title');\
+           let subtitles = document.querySelectorAll('.category-subtitle');\
+\
+           // \uc0\u1057 \u1085 \u1072 \u1095 \u1072 \u1083 \u1072  \u1087 \u1086 \u1082 \u1072 \u1079 \u1099 \u1074 \u1072 \u1077 \u1084  \u1074 \u1089 \u1077 \
+           items.forEach(item => item.classList.remove('hidden'));\
+           categories.forEach(cat => cat.classList.remove('hidden'));\
+           subtitles.forEach(sub => sub.classList.remove('hidden'));\
+\
+           if (searchText.length > 0) \{\
+               items.forEach(item => \{\
+                   let text = item.innerText.toLowerCase();\
+                   if (!text.includes(searchText)) \{\
+                       item.classList.add('hidden');\
+                   \}\
+               \});\
+\
+               // \uc0\u1057 \u1082 \u1088 \u1099 \u1074 \u1072 \u1077 \u1084  \u1079 \u1072 \u1075 \u1086 \u1083 \u1086 \u1074 \u1082 \u1080 , \u1077 \u1089 \u1083 \u1080  \u1087 \u1086 \u1076  \u1085 \u1080 \u1084 \u1080  \u1085 \u1077 \u1090  \u1074 \u1080 \u1076 \u1080 \u1084 \u1099 \u1093  \u1101 \u1083 \u1077 \u1084 \u1077 \u1085 \u1090 \u1086 \u1074 \
+               categories.forEach(cat => \{\
+                   let nextEl = cat.nextElementSibling;\
+                   let hasVisibleItems = false;\
+\
+                   while (nextEl && !nextEl.classList.contains('category-title')) \{\
+                       if (nextEl.classList.contains('menu-item') && !nextEl.classList.contains('hidden')) \{\
+                           hasVisibleItems = true;\
+                           break;\
+                       \}\
+                       nextEl = nextEl.nextElementSibling;\
+                   \}\
+\
+                   if (!hasVisibleItems) \{\
+                       cat.classList.add('hidden');\
+                   \}\
+               \});\
+\
+               // \uc0\u1057 \u1082 \u1088 \u1099 \u1074 \u1072 \u1077 \u1084  \u1087 \u1086 \u1076 \u1079 \u1072 \u1075 \u1086 \u1083 \u1086 \u1074 \u1082 \u1080  (\u1085 \u1072 \u1087 \u1088 \u1080 \u1084 \u1077 \u1088  "\u1050 \u1086 \u1092 \u1077 "), \u1077 \u1089 \u1083 \u1080  \u1087 \u1086 \u1076  \u1085 \u1080 \u1084 \u1080  \u1085 \u1080 \u1095 \u1077 \u1075 \u1086  \u1085 \u1077  \u1085 \u1072 \u1081 \u1076 \u1077 \u1085 \u1086 \
+               subtitles.forEach(sub => \{\
+                   let nextEl = sub.nextElementSibling;\
+                   let hasVisibleItems = false;\
+\
+                   while (nextEl && !nextEl.classList.contains('category-subtitle') && !nextEl.classList.contains('category-title')) \{\
+                       if (nextEl.classList.contains('menu-item') && !nextEl.classList.contains('hidden')) \{\
+                           hasVisibleItems = true;\
+                           break;\
+                       \}\
+                       nextEl = nextEl.nextElementSibling;\
+                   \}\
+\
+                   if (!hasVisibleItems) \{\
+                       sub.classList.add('hidden');\
+                   \}\
+               \});\
+           \}\
+       \});\
+   </script>\
+</body>\
+</html>}
